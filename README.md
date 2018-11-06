@@ -1,10 +1,13 @@
 # Pilvo-Rest
-This project perform Pilvo Rest Api calls
+This project performs validation on Pilvo Rest Api calls
 
 # Prerequisite
-python 3
+You need Python 3 and pyTest to run code.
+```
+pip install -U pytest
+```
 
 # To Run
 ```
-python Main.py
+pytest Main.py
 ```
