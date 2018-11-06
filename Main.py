@@ -56,7 +56,8 @@ def buisnessLogic(authId, authString):
 
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
+def test_main():
     """[Provide the User authId and authToken Here]
     """
     authId = "MAODUZYTQ0Y2FMYJBLOW"
