@@ -27,10 +27,10 @@ def doRestOperation(method, url, authString, payload=""):
         base_url = "https://api.plivo.com/v1/"
         headers = {'content-type': "application/json"}
         headers.update({"authorization": "Basic %s" % authString})
-        # print(method, base_url+url)
+        print(method, base_url+url)
         response = requests.request(
             method, base_url + url, headers=headers, data=payload)
-        # print(response.text, response.status_code)
+        print(response.text, response.status_code)
         return response.text, response.status_code
     except Exception as ex:
         traceback.print_exc()
