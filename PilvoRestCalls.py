@@ -29,7 +29,7 @@ def doRestOperation(method, url, authString, payload=""):
         headers.update({"authorization": "Basic %s" % authString})
         # print(method, base_url+url)
         response = requests.request(
-            method, base_url + url, headers=headers, data=payload, verify=False)
+            method, base_url + url, headers=headers, data=payload)
         # print(response.text, response.status_code)
         return response.text, response.status_code
     except Exception as ex:
