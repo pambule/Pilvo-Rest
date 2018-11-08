@@ -2,10 +2,9 @@
 This project performs validation of Pilvo Rest Api calls.
 
 # Prerequisite
-You need Python 3, urllib3, requests and pyTest to run code.
+You need Python 3, requests and pyTest to run code.
 ```
 pip install -U pytest
-pip install urllib3
 pip install requests
 ```
 
