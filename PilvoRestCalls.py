@@ -6,9 +6,6 @@ import requests
 
 import json
 
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
 
 
 def doRestOperation(method, url, authString, payload=""):
@@ -48,7 +45,7 @@ def genAuthString(authId, authToken):
     try:
         print(sys._getframe().f_code.co_name + ': Starting')
         authId_token = authId+':'+authToken
-        authString = base64.encodebytes(authId_token.encode())
+        authString = base64.b64encode(authId_token.encode())
         return "".join(authString.decode().split())
     except Exception as ex:
         traceback.print_exc()
@@ -75,7 +72,7 @@ def listAllRentedNumbers(authId, authString):
             return responseText
         else:
             raise Exception(sys._getframe().f_code.co_name +
-                            f" Status code didn't match. Expected- {expectedStatusCode} Actual- {responseStatusCode}")
+                            " Status code didn't match. Expected- {Expected} Actual- {Actual}".format(Actual=responseStatusCode,Expected=expectedStatusCode))
     except Exception as ex:
         print(str(ex))
         traceback.print_exc()
@@ -131,7 +128,7 @@ def sendSms(Numbers, authId, authString):
             return responseText
         else:
             raise Exception(sys._getframe().f_code.co_name +
-                            f" Status code didn't match. Expected- {expectedStatusCode} Actual- {responseStatusCode}")
+                            "Status code did not match. Expected- {Expected} Actual- {Actual}'.format(Actual=responseStatusCode,Expected=expectedStatusCode)")
     except Exception as ex:
         print(str(ex))
         traceback.print_exc()
@@ -160,7 +157,7 @@ def getMessageDetails(uuid, authId, authString):
             return responseText
         else:
             raise Exception(sys._getframe().f_code.co_name +
-                            f" Status code didn't match. Expected- {expectedStatusCode} Actual- {responseStatusCode}")
+                            "Status code did not match. Expected- {Expected} Actual- {Actual}'.format(Actual=responseStatusCode,Expected=expectedStatusCode)")
     except Exception as ex:
         print(str(ex))
         traceback.print_exc()
@@ -189,7 +186,7 @@ def getCountryPricing(country, authId, authString):
             return responseText
         else:
             raise Exception(sys._getframe().f_code.co_name +
-                            f" Status code didn't match. Expected- {expectedStatusCode} Actual- {responseStatusCode}")
+                            "Status code did not match. Expected- {Expected} Actual- {Actual}'.format(Actual=responseStatusCode,Expected=expectedStatusCode)")
     except Exception as ex:
         print(str(ex))
         traceback.print_exc()
@@ -235,7 +232,7 @@ def getAccountDetails(authId, authString):
             return responseText
         else:
             raise Exception(sys._getframe().f_code.co_name +
-                            f" Status code didn't match. Expected- {expectedStatusCode} Actual- {responseStatusCode}")
+                            "Status code did not match. Expected- {Expected} Actual- {Actual}'.format(Actual=responseStatusCode,Expected=expectedStatusCode)")
     except Exception as ex:
         print(str(ex))
         traceback.print_exc()
