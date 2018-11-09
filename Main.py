@@ -4,14 +4,14 @@ import sys
 from PilvoRestCalls import *
 
 
-def buisnessLogic(authId, authString):
-    """[Cointains the Buisness Logic]
-    
-    Arguments:
-        authId {[str]} -- [User authId]
-        authString {[str]} -- [Generated authString]
+def test_main():
+    """[Test Case]
     """
+    authId = "MAODUZYTQ0Y2FMYJBLOW"
+    authToken = "Mzk0MzU1Mzc3MTc1MTEyMGU2M2RlYTIwN2UyMzk1"
+    
     try:
+        authString = genAuthString(authId, authToken)
         responseText_getAccountDetails = getAccountDetails(authId, authString)
         currentCredits = float(json.loads(
             responseText_getAccountDetails)["cash_credits"])
@@ -53,14 +53,4 @@ def buisnessLogic(authId, authString):
     except Exception as ex:
         print(str(ex))
         traceback.print_exc()
-
-
-
-# if __name__ == "__main__":
-def test_main():
-    """[Provide the User authId and authToken Here]
-    """
-    authId = "MAODUZYTQ0Y2FMYJBLOW"
-    authToken = "Mzk0MzU1Mzc3MTc1MTEyMGU2M2RlYTIwN2UyMzk1"
-    authString = genAuthString(authId, authToken)
-    buisnessLogic(authId, authString)
+    
